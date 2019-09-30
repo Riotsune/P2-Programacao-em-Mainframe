@@ -7,10 +7,11 @@
        WORKING-STORAGE SECTION.
 
        01 Mensagens.
-           03 Mensagem-01 pic x(50) value "Cal. da area da circ.".
-           03 Mensagem-02 pic x(50) value "Informe o raio da circ.".
-           03 Mensagem-03 pic x(50) value "A circ. e' aproximadamente:".
-           03 Mensagem-04 pic x(50) value "Pressione qualquer tecla".
+           03 Mensagem-01 pic x(23) value "Calcula area do circulo".
+           03 Mensagem-02 pic x(16) value "Raio do circulo: ".
+           03 Mensagem-03 pic x(39) value 
+           "A area do circulo, aproximadamente, eh: ".
+           03 Mensagem-04 pic x(24) value "Pressione qualquer tecla".
 
        01 Circunferencia.
            03 raio-calculo pic s9(5)v99.
@@ -18,9 +19,9 @@
 
        SCREEN SECTION.
        01 Tela-Inicial.
-           03 line 05 column 20 pic x(50) using Mensagem-01.
-           03 line 10 column 10 pic x(50) using Mensagem-02.
-           03 line 15 column 10 pic x(50) using Mensagem-03.
+           03 line 05 column 10 using Mensagem-01.
+           03 line 10 column 10 using Mensagem-02.
+           03 line 15 column 10 using Mensagem-03.
 
        procedure division.
 
