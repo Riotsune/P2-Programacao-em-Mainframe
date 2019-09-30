@@ -17,11 +17,12 @@
        01 PressEnter pic A.
 
        procedure division.
+        inicio.
            perform mostra-mensagens.
            perform recebe-valores.
            perform calcula-media.
            display MascaraNota at 1425.
-           accept PressEnter at 2000
+           accept PressEnter at 1435.
            if Media < 6 then
               perform mensagem-reprovacao1
               perform recebe-exame-suplementar
@@ -34,7 +35,7 @@
            else
               perform mensagem-aprovacao
            end-if.
-           stop run.
+           perform finaliza.
 
        mostra-mensagens.
            display "----- Digite as suas notas -----" at 0308.
@@ -77,8 +78,14 @@
            end-if.
        
        calcula-media.
+           move zeros to Media.
            add NotaP1 NotaP2 
            to Media.
            divide Media by 2 giving Media.
            move Media to MascaraNota.
+       
+       finaliza.
+           display "----- Fim do Programa ------" at 0808.
+           stop " ".
+           stop run.
         
