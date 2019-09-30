@@ -12,7 +12,7 @@
        01 Notas.
            02 NotaP1 pic 9(2)V99 value zeros.
            02 NotaP2 pic 9(2)V99 value zeros.
-           02 MascaraNota pic zz.zz9,99.
+           02 MascaraNota pic 9,9.
        01 Media pic 9(2)V99 value zeros.
        01 PressEnter pic A.
 
