@@ -3,7 +3,7 @@
 
 ## Exercícios a serem feitos
 
-1. Programa Aula4 - Calcular a média aritmética das notas bimestrais de um aluno.
+1. ~~Programa Aula4 - Calcular a média aritmética das notas bimestrais de um aluno.~~
 2. Programa Aula4 - Elaborar um programa para calcular o custo de mercadoria de uma distribuidora. 
 3. Programa Aula5 - Calcular a equação do segundo grau.
 4. Programa Aula6 - Transformar o programa de Equação do Segundo Grau em um programa estruturado.
