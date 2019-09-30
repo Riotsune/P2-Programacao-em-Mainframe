@@ -10,10 +10,14 @@
        working-storage section.
        01 Aluno pic A(60) value space.
        01 Notas.
-           02 NotaP1 pic 9(2)V99 value zeros.
-           02 NotaP2 pic 9(2)V99 value zeros.
-           02 MascaraNota pic zz9,99.
-       01 Media pic 9(2)V99 value zeros.
+           02 NotaP1 pic 99V99 value zeros.
+           02 NotaP2 pic 99V99 value zeros.
+           02 NotaP3 pic 99V99 value zeros.
+           02 NotaP1-M pic ZZ9,99 value zeros.
+           02 NotaP2-M pic ZZ9,99 value zeros.
+           02 NotaP3-M pic ZZ9,99 value zeros.
+       01 Media pic 99V99 value zeros.
+       01 Media-M pic ZZ9,99 value zeros.
        01 PressEnter pic A.
 
        procedure division.
@@ -21,7 +25,7 @@
            perform mostra-mensagens.
            perform recebe-valores.
            perform calcula-media.
-           display MascaraNota at 1425.
+           display Media-M at 1425.
            accept PressEnter at 1435.
            if Media < 6 then
               perform mensagem-reprovacao1
@@ -54,27 +58,43 @@
            display "----- REPROVADO -----"
                with blank screen  at 0308.
            display "Media: "  at 0608.
-           display MascaraNota at 0625.
+           display Media-M at 0625.
        
        mensagem-aprovacao.
            display "----- APROVADO -----"
                with blank screen  at 0308.
            display "Media: "  at 0608.
-           display MascaraNota at 0625.
+           display Media-M at 0625.
 
        recebe-valores.
            accept Aluno at 0625.
-           accept MascaraNota at 0825.
-           move MascaraNota to NotaP1.
-           accept MascaraNota at 1025.
-           move MascaraNota to NotaP2.
+           perform recebe-notas.
+       
+       recebe-notas.
+           accept NotaP1-M at 0825.
+           move NotaP1-M to NotaP1.
+           if NotaP1 > 10 or NotaP1 < 0
+               perform recebe-notas
+           end-if.
+           accept NotaP2-M at 1025.
+           move NotaP2-M to NotaP2.
+           if NotaP2 > 10 or NotaP2 < 0
+               display space with blank screen
+               display Aluno at 0625
+               perform mostra-mensagens
+               perform recebe-notas
+           end-if.
         
        recebe-exame-suplementar.
-           accept MascaraNota at 0625.
+           accept NotaP3-M at 0625.
+           move NotaP3-M to NotaP3.
+           if NotaP3 > 10 or NotaP3 < 0
+               perform recebe-exame-suplementar
+           end-if.
            if NotaP1 < NotaP2 then
-               move MascaraNota to NotaP1
+               move NotaP3 to NotaP1
            else
-               move MascaraNota to NotaP2
+               move NotaP3 to NotaP2
            end-if.
        
        calcula-media.
@@ -82,10 +102,10 @@
            add NotaP1 NotaP2 
            to Media.
            divide Media by 2 giving Media.
-           move Media to MascaraNota.
+           move Media to Media-M.
        
        finaliza.
            display "----- Fim do Programa ------" at 0808.
-           stop " ".
+           stop space.
            stop run.
         
