@@ -13,6 +13,7 @@
            02 SegundaNota pic 9(2)V99 value zeros.
            02 TerceiraNota pic 9(2)V99 value zeros.
            02 QuartaNota pic 9(2)V99 value zeros.
+           02 MascaraNota pic zz.zz9,99.
        01 Media pic 9(2)V99 value zeros.
 
        procedure division.
@@ -30,13 +31,19 @@
            display "Media: " at 1508.
 
        recebe-valores.
-           accept PrimeiraNota at 0625.
-           accept SegundaNota at 0825.
-           accept TerceiraNota at 1025.
-           accept QuartaNota at 1225.
+           accept MascaraNota at 0625.
+           move MascaraNota to PrimeiraNota.
+           accept MascaraNota at 0825.
+           move MascaraNota to SegundaNota.
+           accept MascaraNota at 1025.
+           move MascaraNota to TerceiraNota.
+           accept MascaraNota at 1225.
+           move MascaraNota to QuartaNota.
        
        calcula-media.
-           add PrimeiraNota SegundaNota TerceiraNota QuartaNota to Media.
+           add PrimeiraNota SegundaNota TerceiraNota QuartaNota 
+           to Media.
            divide Media by 4 giving Media.
-           display Media at 1525.
+           move Media to MascaraNota.
+           display MascaraNota at 1525.
         
