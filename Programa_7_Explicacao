@@ -1,0 +1,11 @@
+      *Erros encontrados no programa:
+      
+      *1 - As variaveis ws-salario e ws-sal-atual estao sendo utilizadas em uma mesma operacao de calculo; por 
+      *possuirem formatação diferente, sao confundidas durante a entrada dos dados e, consequentemente, na execucao do calculo,
+      *induzindo a um resultado final erroneo.
+      *
+      *2 - Existe o uso da expressao Go To durante o procedimento, o que nao e recomendavel. O ideal seria utilizar o comando
+      *perform ou uma estrutura de repeticao.
+      *
+      *3-As variaveis "Areas-de-Trabalho" nao sao inicializadas no comeco do programa; quando o programa e repetido sao mantidos os ultimos
+      *valores digitados, e sao mostrados na tela.
