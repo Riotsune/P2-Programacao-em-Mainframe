@@ -1,3 +1,12 @@
+*>        Erros encontrados no programa:
+*>       1 - As variaveis ws-salario e ws-sal-atual foram em uma mesma operacao de calculo; por possuirem formatação diferente, 
+*> são confundidas durante a entrada dos dados e na execucao do calculo, quebrando o resultado final.
+      
+*>      2 - O uso do Go To nao é recomendável. O ideal seria utilizar o comando perform ou uma estrutura de repetição.
+
+*>      3-As váriaveis da "Areas-de-Trabalho" não são inicializadas no comeco, então quando o programa é repetido os últimos 
+*> valores digitados são mantidos e mostrados na tela.
+
        PROGRAM-ID. Dados.
 
        ENVIRONMENT DIVISION.
