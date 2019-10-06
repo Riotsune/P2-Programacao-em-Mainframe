@@ -25,16 +25,11 @@
            02 line 01 column 06 value
            "DISTRIBUIDORA DE PRODUTOS LTDA".
            02 line 02 column 02 value "Nome da mercadoria: ".
-           02 line 02 column 22 value "____________________".
            02 line 03 column 02 value "Quantidade: ".
-           02 line 03 column 14 value "____".
            02 line 04 column 02 value "Preco Unitario: ".
-           02 line 04 column 18 value "$______".
            02 line 05 column 02 value "Preco Total: ".
-           02 line 05 column 15 value "$___________".
            02 line 06 column 02 value "Preco de Venda: ".
-           02 line 06 column 18 value "$_________".
-           02 line 08 column 13 value "Continua (S/N) ? <_>".
+           02 line 08 column 13 value "Continua (S/N) ? < >".
        
        procedure division.
         sumario.
@@ -54,7 +49,7 @@
            end-if.
         
         recebe-simnao.
-           accept SimNao at 0831.
+           accept SimNao with prompt at 0831.
            display LimpaLinha at 1519.
            if SimNao = Space then
                display "Nao deixe o campo em branco" at 1519
@@ -67,7 +62,7 @@
            display LimpaLinha at 1519.
            
         recebe-valores.
-           accept Mercadoria at 0222.
+           accept Mercadoria with prompt at 0222.
            display LimpaLinha at 1519.
            if Mercadoria = Space then
                display "Nao deixe o campo em branco" at 1519
@@ -78,7 +73,7 @@
            perform recebe-preco-unitario.
 
         recebe-quantidade.
-           accept Quantidade-M at 0314.
+           accept Quantidade-M with prompt at 0314.
            display LimpaLinha at 1519.
            move Quantidade-M to Quantidade.
            if Quantidade-M = Space then
@@ -92,7 +87,7 @@
            display LimpaLinha at 1519.
 
         recebe-preco-unitario.
-           accept Preco_Unitario-M at 0419.
+           accept Preco_Unitario-M with prompt at 0419.
            display LimpaLinha at 1519.
            if Preco_Unitario-M = Space then
                display "Nao deixe o campo em branco" at 1519
