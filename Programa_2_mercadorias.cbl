@@ -13,7 +13,7 @@
        01 Preco_Unitario pic 9(4)V9(2) value zeros.
        01 Preco_Venda pic 9(4)V9(2) value zeros.
        01 Preco_Total pic 9(6)V9(2) value zeros.
-       01 Quantidade-M pic ZZZZ value zeros.
+       01 Quantidade-M pic Z(4) value zeros.
        01 Preco_Unitario-M pic Z(4),ZZ value zeros.
        01 Preco_Venda-M pic Z(4),ZZ value zeros.
        01 Preco_Total-M pic Z(6),ZZ value zeros.
@@ -37,13 +37,19 @@
            perform finaliza-programa.
 
         fluxo-padrao.
-           display Tela with blank screen at 0101.
+           display space with blank screen.
+           display Tela at 0101.
+           initialize Mercadoria, Preco_Total, Preco_Total-M, 
+           Preco_Unitario, Preco_Unitario-M, Preco_Venda, 
+           Preco_Venda-M, SimNao, Quantidade, Quantidade-M.
+           
            perform recebe-valores.
            perform calcula-preco-total.
            perform calcula-preco-venda.
            display Preco_Total-M at 0518.
            display Preco_Venda-M at 0620.
            perform recebe-simnao.
+           
            if SimNao = "S" then
               perform fluxo-padrao
            end-if.
@@ -62,16 +68,19 @@
            display LimpaLinha at 1519.
            
         recebe-valores.
+           perform recebe-nome.
+           perform recebe-quantidade.
+           perform recebe-preco-unitario.
+        
+        recebe-nome.
            accept Mercadoria with prompt at 0222.
            display LimpaLinha at 1519.
            if Mercadoria = Space then
                display "Nao deixe o campo em branco" at 1519
-               perform recebe-valores
+               perform recebe-nome
            end-if.
            display LimpaLinha at 1519.
-           perform recebe-quantidade.
-           perform recebe-preco-unitario.
-
+           
         recebe-quantidade.
            accept Quantidade-M with prompt at 0314.
            display LimpaLinha at 1519.
