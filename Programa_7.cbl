@@ -6,7 +6,7 @@
 
 *>      3-As váriaveis da "Areas-de-Trabalho" não são inicializadas no comeco, então quando o programa é repetido os últimos 
 *> valores digitados são mantidos e mostrados na tela.
-
+       IDENTIFICATION DIVISION.
        PROGRAM-ID. Dados.
 
        ENVIRONMENT DIVISION.

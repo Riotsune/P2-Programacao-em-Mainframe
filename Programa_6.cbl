@@ -1,3 +1,4 @@
+       IDENTIFICATION DIVISION.
        PROGRAM-ID. Fatorial.
 
        ENVIRONMENT DIVISION.
