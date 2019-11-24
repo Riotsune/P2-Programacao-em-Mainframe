@@ -77,7 +77,7 @@
            DISPLAY DIA AT 0205.
            DISPLAY MES AT 0208.
            DISPLAY ANO AT 0211.
-      * ----------------------------- InicializaÁ„o das vari·veis
+      * ----------------------------- Inicializa√ß√£o das vari√°veis
            MOVE SPACE TO OPCAO SALVA.
            MOVE SPACES TO NOME.
            MOVE ZEROS TO CODIGO QT UNITARIO TOT.
@@ -109,7 +109,7 @@
        JA-CADASTRADO.
            DISPLAY "JA CADASTRADO" AT 1535.
            SET IGUAL TO 1.
-      * ---------------------------- È preciso zerar novamente os campos
+      * ---------------------------- √© preciso zerar novamente os campos
            MOVE SPACES TO NOME-P.
            MOVE ZEROS TO CODIG-P QTDADE-P UNIT-P TOTAL-P.
 
