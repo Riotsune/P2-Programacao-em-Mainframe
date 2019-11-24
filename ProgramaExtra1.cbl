@@ -9,7 +9,7 @@
            01 MESES-ANO.
                02 FILLER PIC X(9) VALUE "Janeiro".
                02 FILLER PIC X(9) VALUE "Fevereiro".
-               02 FILLER PIC X(9) VALUE "Março".
+               02 FILLER PIC X(9) VALUE "MarÃ§o".
                02 FILLER PIC X(9) VALUE "Abril".
                02 FILLER PIC X(9) VALUE "Maio".
                02 FILLER PIC X(9) VALUE "Junho".
@@ -107,3 +107,5 @@
            Display Tela-Fim.
            Stop ''.
            stop run.
+
+      
