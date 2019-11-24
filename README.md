@@ -7,7 +7,7 @@
 
 ## Exercícios extras a serem feitos (valendo 1,5):
 
-1. Programa de tabela dos meses do ano.
+1. ~~Programa de tabela dos meses do ano.
 2. Programa de inclusão arq indexado.
 3. Programa das siglas dos estados.
 4. Programa de inclusão arq sequencial.
