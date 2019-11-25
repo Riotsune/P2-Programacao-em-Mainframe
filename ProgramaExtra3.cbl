@@ -1,4 +1,4 @@
-       PROGRAM-ID. SilaDosEstados.
+       PROGRAM-ID. SiglaDosEstados.
 
        ENVIRONMENT DIVISION.
 
