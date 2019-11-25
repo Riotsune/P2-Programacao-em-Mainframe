@@ -1,0 +1,62 @@
+      *******************************************************
+       VALIDATE-CPF.
+      *******************************************************
+            IF COUNTR = 11
+               COMPUTE COUNTR = 1
+               EVALUATE GENERAL
+                WHEN '00000000000'
+                WHEN '11111111111'
+                WHEN '22222222222'
+                WHEN '33333333333'
+                WHEN '44444444444'
+                WHEN '55555555555'
+                WHEN '66666666666'
+                WHEN '77777777777'
+                WHEN '88888888888'
+                WHEN '99999999999'
+                 MOVE 'Invalid CPF number.' TO MAIN_MSG(1)
+                 PERFORM PROMPT-EXPECTION
+                 MOVE SPACES TO GENERAL
+                WHEN OTHER
+                 COMPUTE SOMA = 0
+                 PERFORM UNTIL COUNTR > 9
+                  COMPUTE SOMA = SOMA + ((11 - COUNTR) *
+                          FUNCTION NUMVAL(GENERAL(COUNTR:1)))
+                  COMPUTE COUNTR = COUNTR + 1
+                 END-PERFORM
+                 DIVIDE SOMA BY 11 GIVING QUOCIENTE REMAINDER RESTO
+                 IF RESTO < 2
+                    COMPUTE DIG = 0
+                 ELSE
+                    COMPUTE DIG = 11 - RESTO
+                 END-IF
+                 IF DIG NOT EQUAL TO FUNCTION NUMVAL(GENERAL(10:1))
+                    MOVE 'Invalid CPF number.' TO MAIN_MSG(1)
+                    PERFORM PROMPT-EXPECTION
+                    MOVE SPACES TO GENERAL
+                 ELSE
+                    COMPUTE COUNTR = 1
+                    COMPUTE SOMA = 0
+                    PERFORM UNTIL COUNTR > 10
+                     COMPUTE SOMA = SOMA + ((12 - COUNTR) *
+                         FUNCTION NUMVAL(GENERAL(COUNTR:1)))
+                     COMPUTE COUNTR = COUNTR + 1
+                    END-PERFORM
+                    DIVIDE SOMA BY 11 GIVING QUOCIENTE REMAINDER RESTO
+                    IF RESTO < 2
+                       COMPUTE DIG = 0
+                    ELSE
+                       COMPUTE DIG = 11 - RESTO
+                    END-IF
+                    IF DIG NOT EQUAL TO FUNCTION NUMVAL(GENERAL(11:1))
+                       MOVE 'Invalid CPF number.' TO MAIN_MSG(1)
+                       PERFORM PROMPT-EXPECTION
+                       MOVE SPACES TO GENERAL
+                    END-IF
+                 END-IF
+               END-EVALUATE
+            ELSE
+               MOVE 'Invalid CPF length' TO MAIN_MSG(1)
+               PERFORM PROMPT-EXPECTION
+               MOVE SPACES TO GENERAL
+            END-IF.
